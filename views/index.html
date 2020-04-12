@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  {% if not user %}
+    <h2>You are not logged in.</h2>
+    <div>You can log in <a href="/login">here</a>.</div>
+    <div>If you don't have an account, you can sign up <a href="/signup">here</a> instead.</a></div>
+  {% else %}
+
+  {% endif %}
+{% endblock %}

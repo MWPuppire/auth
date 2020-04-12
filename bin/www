@@ -1,0 +1,12 @@
+#!/bin/bash
+true /*
+if nodepath="$(command -v node || command -v nodejs)"; then
+  exec env NODE_ENV=production "$nodepath" "$0" "$@"
+fi
+echo "No Node version found"
+exit 1
+*/
+const app      = require('../app')
+const port     = process.env.PORT || 8080
+app.set('port', port)
+app.listen(port, () => console.log('Starting server on port 8080'))

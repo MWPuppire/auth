@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset=utf8>
+<link rel="stylesheet" href="/static/normalize.css">
+<link rel="stylesheet" href="/static/bootstrap.min.css">
+<link rel="stylesheet" href="/static/main.css">
+<script src="/static/jquery-3.4.1.min.js"></script>
+<script src="/static/popper.min.js"></script>
+<script src="/static/bootstrap.min.js"></script>
+</head>
+<body class="container">
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
+    <a class="navbar-brand" href="#">Auth</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarProfileDropdownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            User
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarProfileDropdownLink">
+            {% if user %}
+              <a class="dropdown-item" href="/profile">Profile</a>
+              <a class="dropdown-item" href="/logout">Log Out</a>
+            {% else %}
+              <a class="dropdown-item" href="/login">Login</a>
+              <a class="dropdown-item" href="/signup">Sign Up</a>
+            {% endif %}
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  {% for m in message %}
+    <div class="alert alert-danger">{{ m }}</div>
+  {% endfor %}
+</header>
+<main>
+  <div class="jumbotron">
+    {% block content %}
+    {% endblock %}
+  </div>
+</main>
+<footer>
+  <p class="text-center text-muted">Copyright 2019 MWPuppire</p>
+</footer>
+</body>
+</html>
+

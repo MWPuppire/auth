@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "author": "MWPuppire",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "connect-sqlite3": "^0.9.11",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "express-lowercase-paths": "^1.0.0",
+    "express-session": "^1.15.6",
+    "memorystore": "^1.6.2",
+    "nunjucks": "^3.2.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^2.2.0",
+    "sqlite3": "^4.0.6"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.4.1"
+  },
+  "scripts": {
+    "start": "make && ./bin/www",
+    "compile": "make"
+  }
+}
