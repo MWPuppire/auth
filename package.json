@@ -23,6 +23,6 @@
   },
   "scripts": {
     "start": "make && ./bin/www",
-    "compile": "make"
+    "build": "make"
   }
 }

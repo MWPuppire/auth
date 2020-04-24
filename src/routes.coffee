@@ -6,9 +6,9 @@ module.exports = (app, passport, db) ->
   app.get '/signup', isNotLoggedIn, (req, res) ->
     res.render 'signup', { user: req.user, message: req.flash 'signupMessage' }
   app.get '/profile', isLoggedIn, (req, res) ->
-    res.render 'profile', { user: req.user }
+    res.render 'profile', { user: req.user, loggedIn: true }
   app.get '/profile/:Username', (req, res) ->
-    res.render 'profile', { user: req.params }
+    res.render 'profile', { user: req.params, loggedIn: req.isAuthenticated() }
   app.get '/logout', (req, res) ->
     req.logout()
     res.redirect '/'
@@ -22,7 +22,7 @@ module.exports = (app, passport, db) ->
     failureRedirect : '/login',
     failureFlash    : true
   })
-  app.use (req, res, next) ->
+  app.use (req, res) ->
     res.status(404).render '404'
 
 isLoggedIn = (req, res, next) ->
@@ -33,4 +33,4 @@ isLoggedIn = (req, res, next) ->
 isNotLoggedIn = (req, res, next) ->
   if not req.isAuthenticated() then return next()
   req.flash 'errorMessage', 'Must sign out to visit that page.'
-  res.redirect '/profile'
+  res.redirect '/'
